@@ -4,7 +4,8 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "start": "npm run lint && vite --port 3000",
+    "prestart": "npm run lint",
+    "start": "vite --port 3000",
     "build": "vite build",
     "preview": "vite preview",
     "server": "json-server --watch products.json --port 3001",
@@ -19,6 +20,7 @@
     "react-router-dom": "^6.11.0"
   },
   "devDependencies": {
+    "@trivago/prettier-plugin-sort-imports": "^4.1.1",
     "@types/react": "^18.0.27",
     "@types/react-dom": "^18.0.10",
     "@vitejs/plugin-react": "^3.1.0",

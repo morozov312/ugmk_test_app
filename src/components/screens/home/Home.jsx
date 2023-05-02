@@ -1,8 +1,8 @@
+import { getAllProducts } from '/src/api/products.js';
+import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
 import React from 'react';
 import { useQuery } from 'react-query';
-import { getAllProducts } from '/src/api/products.js';
 import { useNavigate } from 'react-router-dom';
-import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
 
 const Home = () => {
   const navigate = useNavigate();

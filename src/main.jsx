@@ -1,8 +1,8 @@
+import { router } from './nav/AppRouter.jsx';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { RouterProvider } from 'react-router-dom';
-import { router } from './nav/AppRouter.jsx';
 import { QueryClient, QueryClientProvider } from 'react-query';
+import { RouterProvider } from 'react-router-dom';
 
 const queryClient = new QueryClient();
 

@@ -1,6 +1,6 @@
-import { createBrowserRouter } from 'react-router-dom';
-import React, { lazy } from 'react';
 import { ROUTES } from './routes.js';
+import React, { lazy } from 'react';
+import { createBrowserRouter } from 'react-router-dom';
 
 const NotFound = lazy(() =>
   import('../components/screens/notFound/NotFound.jsx'),
