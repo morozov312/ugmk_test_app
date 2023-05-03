@@ -3,16 +3,9 @@ import { CalculateProductAmount } from '/src/utils/calculateProductAmount.js';
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
-import {
-  Bar,
-  BarChart,
-  Legend,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from 'recharts';
+import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
 
-const MainCharts = () => {
+const MainCharts = ({ productType }) => {
   const navigate = useNavigate();
   const { data } = useQuery('products', getAllProducts, {
     keepPreviousData: true,
@@ -28,9 +21,8 @@ const MainCharts = () => {
       <BarChart width={150} height={40} data={preparedData}>
         <XAxis dataKey='name' />
         <YAxis />
-        <Legend />
-        <Bar dataKey='product1_1' fill='#8884d8' />
-        <Bar dataKey='product1_2' fill='#8884d8' />
+        <Bar dataKey={`${productType}_1`} fill='red' />
+        <Bar dataKey={`${productType}_2`} fill='blue' />
       </BarChart>
     </ResponsiveContainer>
   );
