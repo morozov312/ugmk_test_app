@@ -60,8 +60,8 @@ const DetailDiagram = () => {
           </PieChart>
         </ResponsiveContainer>
         <div className={styles.legendWrapper}>
-          <span className={styles.legend}>Фабрика А</span>
-          <span className={styles.legend}>Фабрика Б</span>
+          <span className={styles.legend}>Продукт 1</span>
+          <span className={styles.legend}>Продукт 2</span>
         </div>
       </div>
     </ErrorBoundary>
