@@ -1,16 +1,9 @@
 import { ROUTES } from './routes.js';
-import React, { lazy } from 'react';
+import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
-
-const NotFound = lazy(() =>
-  import('../components/screens/notFound/NotFound.jsx'),
-);
-const Home = lazy(() => import('/src/components/screens/home/Home.jsx'));
-const DetailDiagram = lazy(() =>
-  import(
-    '/src/components/screens/details/components/detailDiagram/DetailDiagram.jsx'
-  ),
-);
+import Home from '/src/components/screens/home/Home.jsx';
+import DetailDiagram from '/src/components/screens/details/DetailDiagram.jsx';
+import NotFound from '/src/components/screens/notFound/NotFound.jsx';
 
 export const router = createBrowserRouter([
   {

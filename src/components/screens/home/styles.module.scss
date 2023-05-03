@@ -1,3 +1,5 @@
+@import 'src/global.scss';
+
 .wrapper {
   display: flex;
   flex-direction: column;
@@ -32,29 +34,5 @@
 }
 
 .legend {
-  display: flex;
-  gap: 5px;
-  align-items: center;
-
-  &:before {
-    display: block;
-    width: 10px;
-    height: 10px;
-    content: '';
-    background-color: black;
-  }
-
-  &:nth-child(odd) {
-    color: red;
-    &:before {
-      background-color: red;
-    }
-  }
-
-  &:nth-child(even) {
-    color: blue;
-    &:before {
-      background-color: blue;
-    }
-  }
+  @include alternating_colors(red, blue);
 }
