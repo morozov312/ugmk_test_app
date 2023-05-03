@@ -31,7 +31,7 @@ export const CalculateProductAmount = (data) => {
         }
         let total = 0;
         CHART_FIELDS.forEach((field) => {
-          const nProduct = Number(product[field.value]) / 1000;
+          const nProduct = Math.round(Number(product[field.value]) / 1000);
           res[monthIndex][`${field.value}_${product.factory_id}`] =
             (res[monthIndex][`${field.value}_${product.factory_id}`] || 0) +
             nProduct;
