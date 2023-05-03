@@ -1,8 +1,8 @@
 import MainCharts from './components/MainCharts/MainCharts.jsx';
 import styles from './styles.module.scss';
 import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
-import React, { useState } from 'react';
 import { CHART_FIELDS } from '/src/utils/getChartFields.js';
+import React, { useState } from 'react';
 
 const PRODUCTS_TYPES = [
   {
@@ -12,11 +12,16 @@ const PRODUCTS_TYPES = [
   ...CHART_FIELDS,
 ];
 
+const SAVED_KEY = 'saved_item';
+
 const Home = () => {
-  const [currentFilter, setCurrentFilter] = useState(PRODUCTS_TYPES[0].value);
+  const [currentFilter, setCurrentFilter] = useState(
+    localStorage.getItem(SAVED_KEY) || PRODUCTS_TYPES[0].value,
+  );
 
   const onFilterChange = (e) => {
     setCurrentFilter(e.target.value);
+    localStorage.setItem(SAVED_KEY, e.target.value);
   };
 
   return (
