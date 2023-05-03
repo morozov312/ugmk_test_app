@@ -1,4 +1,5 @@
 import React from 'react';
+import { ROUTES } from '/src/nav/routes.js';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {
@@ -11,7 +12,7 @@ class ErrorBoundary extends React.Component {
       error: error,
       errorInfo: errorInfo,
     });
-    window.location.replace('/404');
+    window.location.replace(ROUTES.notFound);
   }
 
   render() {

@@ -26,6 +26,7 @@ export const CalculateProductAmount = (data) => {
             name:
               formattedMonth.charAt(0).toUpperCase() +
               formattedMonth.slice(1, 3),
+            monthIndex,
           };
         }
         let total = 0;
