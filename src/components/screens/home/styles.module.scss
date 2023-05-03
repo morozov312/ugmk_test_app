@@ -1,4 +1,16 @@
 .wrapper {
   width: 100vw;
   height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.barChart {
+  box-sizing: border-box;
+  border: 1px black solid;
+  border-radius: 15px;
+  padding: 10px 50px;
+  height: 60%;
+  width: 75%;
 }

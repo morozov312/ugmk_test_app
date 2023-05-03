@@ -28,15 +28,17 @@ const Home = () => {
   return (
     <ErrorBoundary>
       <div className={styles.wrapper}>
-        <ResponsiveContainer width='80%' height='40%'>
-          <BarChart width={150} height={40} data={preparedData}>
-            <XAxis dataKey='name' />
-            <YAxis />
-            <Legend />
-            <Bar dataKey='product1_1' fill='#8884d8' />
-            <Bar dataKey='product1_2' fill='#8884d8' />
-          </BarChart>
-        </ResponsiveContainer>
+        <div className={styles.barChart}>
+          <ResponsiveContainer width='98%' height='98%'>
+            <BarChart width={150} height={40} data={preparedData}>
+              <XAxis dataKey='name' />
+              <YAxis />
+              <Legend />
+              <Bar dataKey='product1_1' fill='#8884d8' />
+              <Bar dataKey='product1_2' fill='#8884d8' />
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
       </div>
     </ErrorBoundary>
   );
