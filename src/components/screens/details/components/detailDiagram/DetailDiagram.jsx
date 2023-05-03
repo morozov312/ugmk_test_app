@@ -1,13 +1,13 @@
-import React, { useMemo } from 'react';
-import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
-import { useNavigate, useParams } from 'react-router-dom';
-import { useQuery } from 'react-query';
+import styles from './styles.module.scss';
 import { getAllProducts } from '/src/api/products.js';
 import { ROUTES } from '/src/nav/routes.js';
-import { CalculateProductAmount } from '/src/utils/calculateProductAmount.js';
-import { Pie, PieChart, ResponsiveContainer } from 'recharts';
-import styles from './styles.module.scss';
+import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
 import { calculateDataForDiagram } from '/src/utils/calculateDataForDiagram.js';
+import { CalculateProductAmount } from '/src/utils/calculateProductAmount.js';
+import React, { useMemo } from 'react';
+import { useQuery } from 'react-query';
+import { useNavigate, useParams } from 'react-router-dom';
+import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 
 const factoryKey = {
   1: 'А',

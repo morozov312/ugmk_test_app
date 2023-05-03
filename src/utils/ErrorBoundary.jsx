@@ -1,5 +1,5 @@
-import React from 'react';
 import { ROUTES } from '/src/nav/routes.js';
+import React from 'react';
 
 class ErrorBoundary extends React.Component {
   constructor(props) {

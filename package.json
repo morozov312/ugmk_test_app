@@ -12,7 +12,9 @@
     "lint": "eslint --ext .js,.jsx .",
     "lint:fix": "eslint --fix --ext .js,.jsx .",
     "stylelint": "npx stylelint \"**/*.scss\"",
-    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix --custom-syntax postcss-scss\n"
+    "stylelint:fix": "npx stylelint \"**/*.scss\" --fix --custom-syntax postcss-scss\n",
+    "dockerize": "docker build . -t ugmk_test_app",
+    "start-container": "docker run --rm -p 3000:3000 ugmk_test_app"
   },
   "dependencies": {
     "axios": "^1.4.0",

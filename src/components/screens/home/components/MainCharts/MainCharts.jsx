@@ -1,10 +1,10 @@
 import { getAllProducts } from '/src/api/products.js';
+import { ROUTES } from '/src/nav/routes.js';
 import { CalculateProductAmount } from '/src/utils/calculateProductAmount.js';
 import React, { useMemo } from 'react';
 import { useQuery } from 'react-query';
 import { useNavigate } from 'react-router-dom';
 import { Bar, BarChart, ResponsiveContainer, XAxis, YAxis } from 'recharts';
-import { ROUTES } from '/src/nav/routes.js';
 
 const MainCharts = ({ productType }) => {
   const navigate = useNavigate();
