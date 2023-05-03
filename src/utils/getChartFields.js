@@ -7,8 +7,4 @@ export const CHART_FIELDS = [
     label: 'Продукт 2',
     value: 'product2',
   },
-  {
-    label: 'Продукт 3',
-    value: 'product3',
-  },
 ];
