@@ -9,6 +9,11 @@ import { Pie, PieChart, ResponsiveContainer } from 'recharts';
 import styles from './styles.module.scss';
 import { calculateDataForDiagram } from '/src/utils/calculateDataForDiagram.js';
 
+const factoryKey = {
+  1: 'А',
+  2: 'Б',
+};
+
 const DetailDiagram = () => {
   const { factoryId, month } = useParams();
   const navigate = useNavigate();
@@ -20,17 +25,21 @@ const DetailDiagram = () => {
   });
 
   const preparedData = useMemo(() => CalculateProductAmount(data), [data]);
+  const selectedMonth = preparedData[month - 1];
 
   return (
     <ErrorBoundary>
       <div className={styles.wrapper}>
-        <h1>Статистика по продукции фабрики</h1>
-        <ResponsiveContainer width='100%' height='100%'>
+        <h1>
+          Статистика по продукции фабрики {factoryKey[factoryId]} за{' '}
+          {selectedMonth?.name}
+        </h1>
+        <ResponsiveContainer width='100%' height='40%'>
           <PieChart width={400} height={400}>
             <Pie
               dataKey='value'
               isAnimationActive={false}
-              data={calculateDataForDiagram(preparedData[month - 1], factoryId)}
+              data={calculateDataForDiagram(selectedMonth, factoryId)}
               cx='50%'
               cy='50%'
               outerRadius={80}
