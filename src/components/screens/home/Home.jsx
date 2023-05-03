@@ -10,15 +10,15 @@ const PRODUCTS_TYPES = [
   },
   {
     label: 'Продукт 1',
-    value: 'product_1',
+    value: 'product1',
   },
   {
     label: 'Продукт 2',
-    value: 'product_2',
+    value: 'product2',
   },
   {
     label: 'Продукт 3',
-    value: 'product_3',
+    value: 'product3',
   },
 ];
 

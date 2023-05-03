@@ -1,3 +1,5 @@
+import { CHART_FIELDS } from './getChartFields.js';
+
 const dateIsValid = (date) => {
   return date instanceof Date && !isNaN(date);
 };
@@ -7,7 +9,6 @@ const dateIsValid = (date) => {
  * @param {Object[]} data
  * @return {Object[]}
  */
-// const month = date.toLocaleString('ru', { month: 'short' });
 
 export const CalculateProductAmount = (data) => {
   const res = [];
@@ -17,24 +18,26 @@ export const CalculateProductAmount = (data) => {
       if (dateIsValid(dateInstance)) {
         const monthIndex = dateInstance.getMonth();
         const currentMonth = res[monthIndex];
-        const nProduct1 = Number(product.product1);
-        const nProduct2 = Number(product.product2);
-        const nProduct3 = Number(product.product3);
-        const nTotal = nProduct1 + nProduct2 + nProduct3;
         if (!currentMonth) {
-          res[monthIndex] = {};
+          const formattedMonth = dateInstance
+            .toLocaleString('ru', { month: 'short' })
+            .replace(/\.$/gm, '');
+          res[monthIndex] = {
+            name:
+              formattedMonth.charAt(0).toUpperCase() +
+              formattedMonth.slice(1, 3),
+          };
         }
+        let total = 0;
+        CHART_FIELDS.forEach((field) => {
+          const nProduct = Number(product[field.value]);
+          res[monthIndex][`${field.value}_${product.factory_id}`] =
+            (res[monthIndex][`${field.value}_${product.factory_id}`] || 0) +
+            nProduct;
+          total += nProduct;
+        });
         res[monthIndex][`total_${product.factory_id}`] =
-          (res[monthIndex]?.[`total_${product.factory_id}`] || 0) + nTotal;
-        res[monthIndex][`product1_${product.factory_id}`] =
-          (res[monthIndex]?.[`product1_${product.factory_id}`] || 0) +
-          nProduct1;
-        res[monthIndex][`product2_${product.factory_id}`] =
-          (res[monthIndex]?.[`product2_${product.factory_id}`] || 0) +
-          nProduct2;
-        res[monthIndex][`product3_${product.factory_id}`] =
-          (res[monthIndex]?.[`product3_${product.factory_id}`] || 0) +
-          nProduct3;
+          (res[monthIndex][`total_${product.factory_id}`] || 0) + total;
       }
     });
   }
