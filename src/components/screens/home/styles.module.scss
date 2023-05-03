@@ -1,16 +1,26 @@
 .wrapper {
-  width: 100vw;
-  height: 100vh;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  width: 75%;
+  height: 100vh;
   padding-top: 50px;
+  margin: 0 auto;
 }
 
 .barChart {
   box-sizing: border-box;
+  height: 60%;
+  padding: 10px 50px;
   border: 1px black solid;
   border-radius: 15px;
-  padding: 10px 50px;
-  height: 60%;
-  width: 75%;
+}
+
+.filters {
+  display: flex;
+  gap: 15px;
+  justify-content: flex-end;
+  padding: 15px;
+  border: 1px black solid;
+  border-radius: 15px;
 }

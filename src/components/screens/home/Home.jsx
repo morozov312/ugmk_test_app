@@ -1,43 +1,43 @@
-import { getAllProducts } from '/src/api/products.js';
-import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
-import React, { useMemo } from 'react';
-import { useQuery } from 'react-query';
-import { useNavigate } from 'react-router-dom';
-import {
-  Bar,
-  BarChart,
-  Legend,
-  ResponsiveContainer,
-  XAxis,
-  YAxis,
-} from 'recharts';
+import MainCharts from './components/MainCharts/MainCharts.jsx';
 import styles from './styles.module.scss';
-import { CalculateProductAmount } from '../../../utils/calculateProductAmount.js';
+import ErrorBoundary from '/src/utils/ErrorBoundary.jsx';
+import React from 'react';
+
+const PRODUCTS_TYPES = [
+  {
+    label: 'Все продукты',
+    value: 'total',
+  },
+  {
+    label: 'Продукт 1',
+    value: 'product_1',
+  },
+  {
+    label: 'Продукт 2',
+    value: 'product_2',
+  },
+  {
+    label: 'Продукт 3',
+    value: 'product_3',
+  },
+];
 
 const Home = () => {
-  const navigate = useNavigate();
-  const { data } = useQuery('products', getAllProducts, {
-    keepPreviousData: true,
-    refetchOnWindowFocus: false,
-    retry: false,
-    onError: () => navigate('/404'),
-  });
-
-  const preparedData = useMemo(() => CalculateProductAmount(data), [data]);
-
   return (
     <ErrorBoundary>
       <div className={styles.wrapper}>
+        <div className={styles.filters}>
+          <span>Фильтр по типу продукции</span>
+          <select>
+            {PRODUCTS_TYPES.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className={styles.barChart}>
-          <ResponsiveContainer width='98%' height='98%'>
-            <BarChart width={150} height={40} data={preparedData}>
-              <XAxis dataKey='name' />
-              <YAxis />
-              <Legend />
-              <Bar dataKey='product1_1' fill='#8884d8' />
-              <Bar dataKey='product1_2' fill='#8884d8' />
-            </BarChart>
-          </ResponsiveContainer>
+          <MainCharts />
         </div>
       </div>
     </ErrorBoundary>
